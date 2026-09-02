@@ -1,0 +1,89 @@
+/* app/globals.css */
+
+/* ── Fuentes desde Google Fonts CDN (se cargan en el browser) ── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fuentes disponibles directamente como variables CSS */
+    --font-barlow:   'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-dm-mono:  'DM Mono', 'Courier New', monospace;
+    --font-dm-sans:  'DM Sans', system-ui, sans-serif;
+
+    --lime:    #C8FF00;
+    --bg:      #0a0a0a;
+    --bg-2:    #111111;
+    --bg-3:    #181818;
+    --border:  rgba(255, 255, 255, 0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    font-family: var(--font-dm-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #111; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #444; }
+}
+
+/* ── Animaciones globales ── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-lime {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 255, 0, 0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(200, 255, 0, 0.12); }
+}
+
+@layer utilities {
+  /* Familias de fuentes como clases Tailwind */
+  .font-display { font-family: var(--font-barlow) !important; }
+  .font-body    { font-family: var(--font-dm-sans) !important; }
+
+  /* Reemplazar font-mono de Tailwind con DM Mono */
+  .font-mono    { font-family: var(--font-dm-mono) !important; }
+
+  /* Colores utilitarios */
+  .text-lime     { color: #C8FF00; }
+  .bg-lime       { background-color: #C8FF00; }
+
+  /* Textura de grilla */
+  .grid-texture {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Animaciones */
+  .animate-ticker { animation: ticker 24s linear infinite; }
+  .animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .animate-pulse-lime { animation: pulse-lime 3s ease-in-out infinite; }
+
+  /* Componentes reutilizables */
+  .card-dark   { @apply bg-[#111] border border-white/[0.07] rounded-xl; }
+  .input-dark  { @apply bg-[#181818] border border-white/[0.07] rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#C8FF00]/40 transition-colors w-full; }
+  .label-dark  { @apply text-[10px] uppercase tracking-widest text-white/40; }
+  .btn-lime    { @apply bg-[#C8FF00] text-black font-black text-sm uppercase tracking-widest rounded-lg hover:bg-[#d4ff26] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-ghost   { @apply bg-transparent border border-white/[0.07] text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:border-white/20 hover:bg-white/[0.04] transition-all; }
+}
