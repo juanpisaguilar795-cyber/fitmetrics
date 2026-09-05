@@ -20,33 +20,34 @@ const HYPERTROPHY_ROUTINES: Record<number, { title: string; days: { key: string;
         key: 'dia1',
         label: 'Día 1 · Empuje (Pecho/Hombro/Tríceps)',
         exercises: [
-          { name: 'Press de Banca Inclinado con Mancuernas', muscleGroup: 'Pecho (Fibras Superiores)', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
-          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho (Aislamiento)', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' },
-          { name: 'Press Militar con Mancuernas Sentado', muscleGroup: 'Hombros (Deltoide Anterior)', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
-          { name: 'Elevaciones Laterales con Mancuernas', muscleGroup: 'Hombros (Deltoide Lateral)', sets: '4 series x 12-15 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
-          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps (Aislamiento)', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' }
+          { name: 'Press de Banca Inclinado con Mancuernas', muscleGroup: 'Pecho (Fibras Superiores)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
+          { name: 'Press de Pecho en Máquina (Empuje)', muscleGroup: 'Pecho (Enfoque Medio/Inferior)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '-hwHlnTZ0Bs' },
+          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho (Aislamiento)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' },
+          { name: 'Press Militar con Mancuernas Sentado', muscleGroup: 'Hombros (Deltoide Anterior)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
+          { name: 'Elevaciones Laterales con Mancuernas', muscleGroup: 'Hombros (Deltoide Lateral)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
+          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps (Aislamiento)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' }
         ]
       },
       {
         key: 'dia2',
         label: 'Día 2 · Pierna (Cuádriceps/Femoral/Gemelo)',
         exercises: [
-          { name: 'Prensa de Piernas Inclinada 45°', muscleGroup: 'Piernas (Cuádriceps y Glúteos)', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: 'yZ8Zc8V_Z58' },
-          { name: 'Hip Thrust con Barra', muscleGroup: 'Glúteos y Femorales', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'LM8XH3vGPgo' },
-          { name: 'Curl Femoral Acostado', muscleGroup: 'Femorales (Aislamiento)', sets: '3 series x 10-12 reps', rir: '1-2', youtubeId: '1Tq3QdILRIg' },
-          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps (Aislamiento)', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'm0fo7aU8_p4' },
-          { name: 'Elevación de Talones Sentado (Gemelos)', muscleGroup: 'Pantorrillas / Gemelos', sets: '4 series x 15-20 reps', rir: '1-2', youtubeId: '2YV8gK_D_D4' }
+          { name: 'Prensa de Piernas Inclinada 45°', muscleGroup: 'Piernas (Cuádriceps y Glúteos)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'KdT2g0iSdG0' },
+          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps (Aislamiento)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'J-Y-Z0EU9Ic' },
+          { name: 'Curl Femoral Acostado', muscleGroup: 'Femorales (Aislamiento)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '9xbBr5Ytl8c' },
+          { name: 'Sentadilla Búlgara con Mancuernas', muscleGroup: 'Cuádriceps y Glúteos', sets: '3 series x 8-10 reps/lado', rir: '1-2', youtubeId: 'qs-adxsCIrc' },
+          { name: 'Aducción de Cadera en Máquina (Aductores)', muscleGroup: 'Aductores (Aislamiento)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'fItDiXXZyZo' }
         ]
       },
       {
         key: 'dia3',
         label: 'Día 3 · Tirón (Espalda/Bíceps/Posterior)',
         exercises: [
-          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Densidad general)', sets: '4 series x 6-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
-          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Espalda (Amplitud de Dorsales)', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: '6JbkTvBkekY' },
-          { name: 'Face Pulls en Polea Alta', muscleGroup: 'Hombro Posterior y Trapecio', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'pIP5EKDp88k' },
-          { name: 'Curl de Bíceps Alterno con Mancuernas', muscleGroup: 'Bíceps (Supinación)', sets: '3 series x 8-12 reps', rir: '2', youtubeId: 'eSADGjh6Wf8' },
-          { name: 'Curl Martillo con Mancuernas', muscleGroup: 'Bíceps y Braquiorradial', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' }
+          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Densidad general)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
+          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Espalda (Amplitud de Dorsales)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '6JbkTvBkekY' },
+          { name: 'Face Pulls en Polea Alta', muscleGroup: 'Hombro Posterior y Trapecio', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'UaZPhyztYNU' },
+          { name: 'Curl de Bíceps Alterno con Mancuernas', muscleGroup: 'Bíceps (Supinación)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'eSADGjh6Wf8' },
+          { name: 'Curl Martillo con Mancuernas', muscleGroup: 'Bíceps y Braquiorradial', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' }
         ]
       }
     ]
@@ -58,42 +59,44 @@ const HYPERTROPHY_ROUTINES: Record<number, { title: string; days: { key: string;
         key: 'dia1',
         label: 'Día 1 · Torso A (Pecho / Hombro / Tríceps)',
         exercises: [
-          { name: 'Press de Banca Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
-          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho (Aislamiento)', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' },
-          { name: 'Press Militar Sentado con Mancuernas', muscleGroup: 'Hombros', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
-          { name: 'Elevaciones Laterales', muscleGroup: 'Deltoide Lateral', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
-          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' }
+          { name: 'Press de Banca Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
+          { name: 'Press de Pecho en Máquina (Empuje)', muscleGroup: 'Pecho Medio/Inferior', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '-hwHlnTZ0Bs' },
+          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho (Aislamiento)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' },
+          { name: 'Press Militar Sentado con Mancuernas', muscleGroup: 'Hombros', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
+          { name: 'Elevaciones Laterales', muscleGroup: 'Deltoide Lateral', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
+          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' }
         ]
       },
       {
         key: 'dia2',
         label: 'Día 2 · Piernas A (Enfoque Cuádriceps)',
         exercises: [
-          { name: 'Prensa de Piernas Inclinada 45°', muscleGroup: 'Cuádriceps y Glúteos', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: 'yZ8Zc8V_Z58' },
-          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'm0fo7aU8_p4' },
-          { name: 'Curl Femoral Sentado', muscleGroup: 'Femorales', sets: '3 series x 8-12 reps', rir: '1-2', youtubeId: '1Tq3QdILRIg' },
-          { name: 'Elevación de Talones de Pie (Gemelos)', muscleGroup: 'Gemelos (Gastrocnemio)', sets: '4 series x 12-15 reps', rir: '1-2', youtubeId: '2YV8gK_D_D4' }
+          { name: 'Prensa de Piernas Inclinada 45°', muscleGroup: 'Cuádriceps y Glúteos', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'KdT2g0iSdG0' },
+          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'J-Y-Z0EU9Ic' },
+          { name: 'Curl Femoral Sentado', muscleGroup: 'Femorales', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '9xbBr5Ytl8c' },
+          { name: 'Sentadilla Búlgara con Mancuernas', muscleGroup: 'Cuádriceps y Glúteos', sets: '3 series x 8-10 reps/lado', rir: '1-2', youtubeId: 'qs-adxsCIrc' },
+          { name: 'Aducción de Cadera en Máquina (Aductores)', muscleGroup: 'Aductores', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'fItDiXXZyZo' }
         ]
       },
       {
         key: 'dia3',
         label: 'Día 3 · Torso B (Espalda / Bíceps / Posterior)',
         exercises: [
-          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Densidad y dorsal)', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
-          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Dorsales', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: '6JbkTvBkekY' },
-          { name: 'Face Pulls en Polea Alta', muscleGroup: 'Hombro Posterior', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'pIP5EKDp88k' },
-          { name: 'Curl de Bíceps con Barra EZ', muscleGroup: 'Bíceps', sets: '3 series x 8-12 reps', rir: '2', youtubeId: 'yKjA00wM0_A' },
-          { name: 'Curl de Bíceps Inclinado con Mancuernas', muscleGroup: 'Bíceps (Cabeza larga)', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'zC3nLlEvin4' }
+          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Densidad y dorsal)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
+          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Dorsales', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '6JbkTvBkekY' },
+          { name: 'Face Pulls en Polea Alta', muscleGroup: 'Hombro Posterior', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'UaZPhyztYNU' },
+          { name: 'Curl de Bíceps con Barra EZ', muscleGroup: 'Bíceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'yKjA00wM0_A' },
+          { name: 'Curl de Bíceps Inclinado con Mancuernas', muscleGroup: 'Bíceps (Cabeza larga)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'zC3nLlEvin4' }
         ]
       },
       {
         key: 'dia4',
         label: 'Día 4 · Piernas B (Enfoque Cadena Posterior)',
         exercises: [
-          { name: 'Hip Thrust pesado con Barra', muscleGroup: 'Glúteo Mayor y Cadena Posterior', sets: '4 series x 6-10 reps', rir: '1-2', youtubeId: 'LM8XH3vGPgo' },
-          { name: 'Peso Muerto Rumano con Mancuernas', muscleGroup: 'Femorales y Glúteos', sets: '3 series x 8-12 reps', rir: '1-2', youtubeId: '1Tq3QdILRIg' },
-          { name: 'Zancadas Dinámicas (Lunges)', muscleGroup: 'Pierna general y balance', sets: '3 series x 10-12 reps/lado', rir: '2', youtubeId: 'yZ8Zc8V_Z58' },
-          { name: 'Gemelos Sentado', muscleGroup: 'Sóleo (Aislamiento)', sets: '4 series x 15-20 reps', rir: '1-2', youtubeId: '2YV8gK_D_D4' }
+          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'J-Y-Z0EU9Ic' },
+          { name: 'Peso Muerto Rumano con Mancuernas', muscleGroup: 'Femorales y Glúteos', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '1Tq3QdILRIg' },
+          { name: 'Zancadas Dinámicas (Lunges)', muscleGroup: 'Pierna general y balance', sets: '3 series x 8-10 reps/lado', rir: '2', youtubeId: 'yZ8Zc8V_Z58' },
+          { name: 'Sentadilla Búlgara con Mancuernas', muscleGroup: 'Cuádriceps y Glúteos', sets: '3 series x 8-10 reps/lado', rir: '1-2', youtubeId: 'qs-adxsCIrc' }
         ]
       }
     ]
@@ -103,53 +106,59 @@ const HYPERTROPHY_ROUTINES: Record<number, { title: string; days: { key: string;
     days: [
       {
         key: 'dia1',
-        label: 'Día 1 · Antagonistas: Pecho & Espalda',
+        label: 'Día 1 · Pecho & Espalda A (Agarre Abierto & Pull Over)',
         exercises: [
-          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Dorsal/Trapecio)', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
-          { name: 'Press Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
-          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Espalda (Amplitud)', sets: '4 series x 10-12 reps', rir: '2', youtubeId: '6JbkTvBkekY' },
-          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho Aislamiento', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' }
+          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Dorsal/Trapecio)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
+          { name: 'Press Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
+          { name: 'Press de Pecho en Máquina (Empuje)', muscleGroup: 'Pecho (Empuje Guiado)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '-hwHlnTZ0Bs' },
+          { name: 'Jalón al Pecho Agarre Abierto', muscleGroup: 'Espalda (Amplitud - Agarre Abierto)', sets: '3 series x 8-10 reps', rir: '2', youtubeId: '6JbkTvBkekY' },
+          { name: 'Pull Over en Polea Alta con barra', muscleGroup: 'Espalda (Dorsal / Aislamiento)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'Iuw8RaYF7bk' },
+          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho Aislamiento', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' }
         ]
       },
       {
         key: 'dia2',
         label: 'Día 2 · Aislamiento: Hombros & Brazos',
         exercises: [
-          { name: 'Press Militar Sentado con Mancuernas', muscleGroup: 'Deltoides', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
-          { name: 'Elevaciones Laterales Mancuernas', muscleGroup: 'Hombro Lateral', sets: '4 series x 12-15 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
-          { name: 'Curl de Bíceps Alterno Mancuernas', muscleGroup: 'Bíceps', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'eSADGjh6Wf8' },
-          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' },
-          { name: 'Curl Martillo Mancuernas', muscleGroup: 'Braquial/Antebrazo', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' }
+          { name: 'Press Militar Sentado con Mancuernas', muscleGroup: 'Deltoides', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
+          { name: 'Elevaciones Laterales Mancuernas', muscleGroup: 'Hombro Lateral', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
+          { name: 'Curl de Bíceps Alterno Mancuernas', muscleGroup: 'Bíceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'eSADGjh6Wf8' },
+          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' },
+          { name: 'Curl Martillo Mancuernas', muscleGroup: 'Braquial/Antebrazo', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' }
         ]
       },
       {
         key: 'dia3',
         label: 'Día 3 · Tren Inferior: Piernas Completas',
         exercises: [
-          { name: 'Prensa de Piernas inclinada 45°', muscleGroup: 'Cuádriceps', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: 'yZ8Zc8V_Z58' },
-          { name: 'Hip Thrust Barra', muscleGroup: 'Glúteos', sets: '4 series x 8-10 reps', rir: '1-2', youtubeId: 'LM8XH3vGPgo' },
-          { name: 'Curl Femoral Acostado', muscleGroup: 'Isquios', sets: '3 series x 10-12 reps', rir: '1-2', youtubeId: '1Tq3QdILRIg' },
-          { name: 'Gemelos Sentado', muscleGroup: 'Sóleo', sets: '4 series x 15-20 reps', rir: '1-2', youtubeId: '2YV8gK_D_D4' }
+          { name: 'Prensa de Piernas inclinada 45°', muscleGroup: 'Cuádriceps', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'KdT2g0iSdG0' },
+          { name: 'Extensión de Cuádriceps en Máquina', muscleGroup: 'Cuádriceps', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'J-Y-Z0EU9Ic' },
+          { name: 'Curl Femoral Acostado', muscleGroup: 'Isquios', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '9xbBr5Ytl8c' },
+          { name: 'Sentadilla Búlgara con Mancuernas', muscleGroup: 'Cuádriceps y Glúteos', sets: '3 series x 8-10 reps/lado', rir: '1-2', youtubeId: 'qs-adxsCIrc' },
+          { name: 'Aducción de Cadera en Máquina (Aductores)', muscleGroup: 'Aductores', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'fItDiXXZyZo' }
         ]
       },
       {
         key: 'dia4',
-        label: 'Día 4 · Upper general (Enfoque)',
+        label: 'Día 4 · Pecho & Espalda B (Agarre Cerrado & Unilateral)',
         exercises: [
-          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda general', sets: '4 series x 8-12 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
-          { name: 'Press de Banca Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
-          { name: 'Face Pulls en Polea Alta', muscleGroup: 'Hombro Posterior', sets: '3 series x 12-15 reps', rir: '2', youtubeId: 'pIP5EKDp88k' },
-          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps (Cabeza larga)', sets: '3 series x 10-12 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' }
+          { name: 'Remo con Barra Prono', muscleGroup: 'Espalda (Dorsal/Trapecio)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'FsNfvAfLeTw' },
+          { name: 'Press Inclinado con Mancuernas', muscleGroup: 'Pecho Superior', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'qhKStczz27Q' },
+          { name: 'Press de Pecho en Máquina (Empuje)', muscleGroup: 'Pecho (Empuje Guiado)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: '-hwHlnTZ0Bs' },
+          { name: 'Jalón al Pecho Agarre Cerrado', muscleGroup: 'Espalda (Dorsal - Agarre Cerrado)', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'SnLxcN1x3LU' },
+          { name: 'Jalón Unilateral en Polea Alta (Agarre Cerrado)', muscleGroup: 'Espalda (Dorsal Unilateral / Agarre Cerrado)', sets: '3 series x 8-10 reps/lado', rir: '1-2', youtubeId: 'QSN4qb6OPtY' },
+          { name: 'Aperturas en Máquina (Pec Dec)', muscleGroup: 'Pecho Aislamiento', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'sAeDw6xhFFw' }
         ]
       },
       {
         key: 'dia5',
-        label: 'Día 5 · Brazos & Detalles estéticos',
+        label: 'Día 5 · Hombros & Brazos B (Repite Día 2)',
         exercises: [
-          { name: 'Curl Martillo con Mancuernas', muscleGroup: 'Bíceps y antebrazos', sets: '4 series x 10-12 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' },
-          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '4 series x 10-12 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' },
-          { name: 'Elevaciones Laterales Mancuernas', muscleGroup: 'Hombros Laterales', sets: '4 series x 12-15 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
-          { name: 'Curl Bíceps con Barra EZ', muscleGroup: 'Bíceps', sets: '3 series x 8-12 reps', rir: '2', youtubeId: 'yKjA00wM0_A' }
+          { name: 'Press Militar Sentado con Mancuernas', muscleGroup: 'Deltoides', sets: '3 series x 8-10 reps', rir: '1-2', youtubeId: 'BaONy7w34-U' },
+          { name: 'Elevaciones Laterales Mancuernas', muscleGroup: 'Hombro Lateral', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'hgLpdwMtEEs' },
+          { name: 'Curl de Bíceps Alterno Mancuernas', muscleGroup: 'Bíceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'eSADGjh6Wf8' },
+          { name: 'Extensión de Tríceps con Polea Alta', muscleGroup: 'Tríceps', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YWPIKPdyKhs' },
+          { name: 'Curl Martillo Mancuernas', muscleGroup: 'Braquial/Antebrazo', sets: '3 series x 8-10 reps', rir: '2', youtubeId: 'YuWwvRD5DW4' }
         ]
       }
     ]
@@ -197,8 +206,8 @@ export default function HypertrophyPage() {
               key={d}
               onClick={() => handleSplitChange(d)}
               className={`px-4 py-2 text-xs font-mono font-bold uppercase rounded-lg transition-all whitespace-nowrap ${splitDays === d
-                  ? 'bg-[#C8FF00] text-black shadow-lg shadow-[#C8FF00]/10'
-                  : 'text-white/40 hover:text-white hover:bg-white/[0.03]'
+                ? 'bg-[#C8FF00] text-black shadow-lg shadow-[#C8FF00]/10'
+                : 'text-white/40 hover:text-white hover:bg-white/[0.03]'
                 }`}
             >
               {d} días
@@ -225,8 +234,8 @@ export default function HypertrophyPage() {
             key={day.key}
             onClick={() => setActiveTabKey(day.key)}
             className={`flex-1 min-w-[140px] pb-3 text-center transition-all focus:outline-none border-b-2 ${activeTabKey === day.key
-                ? 'border-[#C8FF00] text-white font-bold'
-                : 'border-transparent text-white/30 hover:text-white/60'
+              ? 'border-[#C8FF00] text-white font-bold'
+              : 'border-transparent text-white/30 hover:text-white/60'
               }`}
           >
             <p className="text-xs uppercase tracking-wider">{day.label.split(' · ')[0]}</p>
