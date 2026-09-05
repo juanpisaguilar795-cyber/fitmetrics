@@ -6,9 +6,9 @@ import { calculateOneRepMax, type OneRepMaxResult } from '@/lib/calculators/one-
 
 export default function OneRepMaxPage() {
   const [form, setForm] = useState({ weight_lifted: '', reps: '', formula: 'epley' })
-  const [result,  setResult]  = useState<OneRepMaxResult | null>(null)
+  const [result, setResult] = useState<OneRepMaxResult | null>(null)
   const [loading, setLoading] = useState(false)
-  const [error,   setError]   = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   function update(k: string, v: string) {
     setForm(f => ({ ...f, [k]: v }))
@@ -42,7 +42,7 @@ export default function OneRepMaxPage() {
   }
 
   return (
-    <div className="p-8 max-w-3xl">
+    <div className="p-4 sm:p-6 md:p-8 max-w-3xl mx-auto w-full">
       <div className="mb-10">
         <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-1">Calculadora</p>
         <h1 className="font-black text-4xl uppercase tracking-tight text-white">
@@ -51,23 +51,22 @@ export default function OneRepMaxPage() {
         <p className="text-sm text-white/30 font-mono mt-2">Estima tu fuerza máxima en un ejercicio</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <form onSubmit={handleSubmit} className="bg-[#111] border border-white/[0.07] rounded-xl p-6 flex flex-col gap-5">
           {/* Fórmula */}
           <div className="flex flex-col gap-2">
             <label className="text-[10px] font-mono uppercase tracking-widest text-white/40">Fórmula</label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {[
-                { value: 'epley',    label: 'Epley'    },
-                { value: 'brzycki',  label: 'Brzycki'  },
+                { value: 'epley', label: 'Epley' },
+                { value: 'brzycki', label: 'Brzycki' },
                 { value: 'lombardi', label: 'Lombardi' },
               ].map(o => (
                 <button key={o.value} type="button" onClick={() => update('formula', o.value)}
-                  className={`py-2 text-xs font-mono uppercase tracking-widest rounded-lg border transition-all ${
-                    form.formula === o.value
+                  className={`py-2 text-xs font-mono uppercase tracking-widest rounded-lg border transition-all ${form.formula === o.value
                       ? 'bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00]'
                       : 'bg-[#181818] border-white/[0.07] text-white/30 hover:text-white/50'
-                  }`}
+                    }`}
                 >
                   {o.label}
                 </button>
@@ -83,7 +82,7 @@ export default function OneRepMaxPage() {
           {/* Inputs */}
           {[
             { key: 'weight_lifted', label: 'Peso levantado (kg)', placeholder: '100' },
-            { key: 'reps',          label: 'Repeticiones',        placeholder: '5'   },
+            { key: 'reps', label: 'Repeticiones', placeholder: '5' },
           ].map(({ key, label, placeholder }) => (
             <div key={key} className="flex flex-col gap-2">
               <label className="text-[10px] font-mono uppercase tracking-widest text-white/40">{label}</label>
@@ -123,7 +122,7 @@ export default function OneRepMaxPage() {
               </div>
 
               {/* Percentage table */}
-              <div className="bg-[#111] border border-white/[0.07] rounded-xl overflow-hidden">
+              <div className="bg-[#111] border border-white/[0.07] rounded-xl overflow-x-auto">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-white/20 px-5 py-3 border-b border-white/[0.07]">
                   Tabla de intensidades
                 </p>

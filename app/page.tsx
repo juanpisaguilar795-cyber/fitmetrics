@@ -41,9 +41,9 @@ export default function LandingPage() {
       />
 
       {/* ── NAV ── */}
-      <nav style={{
+      <nav className="px-4 md:px-12" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: 64,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 48px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         borderBottom: '1px solid rgba(255,255,255,0.07)', background: 'rgba(10,10,10,0.9)',
         backdropFilter: 'blur(20px)'
       }}>
@@ -60,11 +60,11 @@ export default function LandingPage() {
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          <a href="#features" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
+        <div className="gap-3 sm:gap-8" style={{ display: 'flex', alignItems: 'center' }}>
+          <a href="#features" className="hidden sm:inline-block" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
             Funciones
           </a>
-          <Link href="/calculators/tdee" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
+          <Link href="/calculators/tdee" className="hidden sm:inline-block" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
             Calculadoras
           </Link>
           <Link href="/calculators/tdee" style={{ padding: '9px 18px', background: '#C8FF00', color: '#000', fontFamily: 'var(--font-dm-mono)', fontWeight: 500, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', borderRadius: 6, textDecoration: 'none' }}>
@@ -81,7 +81,7 @@ export default function LandingPage() {
       </div>
 
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '148px 48px 80px', zIndex: 1 }}>
+      <section className="px-4 md:px-12 pt-36 sm:pt-44 pb-16 sm:pb-20" style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', zIndex: 1 }}>
 
         {/* Glow */}
         <div style={{
@@ -99,7 +99,7 @@ export default function LandingPage() {
         {/* Title */}
         <h1 style={{
           fontFamily: 'var(--font-barlow)', fontWeight: 900, lineHeight: 0.88, letterSpacing: '-0.01em', textTransform: 'uppercase', marginBottom: 8,
-          fontSize: 'clamp(68px, 11vw, 144px)'
+          fontSize: 'clamp(38px, 10vw, 144px)'
         }}>
           <span style={{ display: 'block', color: '#f0f0f0' }}>Entrena</span>
           <span style={{ display: 'block', color: '#f0f0f0' }}>con <span style={{ color: '#C8FF00' }}>datos.</span></span>
@@ -113,39 +113,34 @@ export default function LandingPage() {
         </p>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-          <Link href="/calculators/tdee" style={{
+        <div className="w-full max-w-sm sm:max-w-none" style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Link href="/calculators/tdee" className="w-full sm:w-auto" style={{
             padding: '17px 44px', background: '#C8FF00', color: '#000',
             fontFamily: 'var(--font-barlow)', fontWeight: 900, fontSize: 17,
             textTransform: 'uppercase', letterSpacing: '0.06em', borderRadius: 8,
-            textDecoration: 'none', boxShadow: '0 8px 32px rgba(200,255,0,0.18)',
+            textDecoration: 'none', boxShadow: '0 8px 32px rgba(200,255,0,0.18)', display: 'inline-block', textAlign: 'center'
           }}>
             Probar calculadoras →
           </Link>
-          <a href="#features" style={{
+          <a href="#features" className="w-full sm:w-auto" style={{
             padding: '17px 44px', background: 'transparent', color: '#f0f0f0',
             fontFamily: 'var(--font-barlow)', fontWeight: 700, fontSize: 17,
             textTransform: 'uppercase', letterSpacing: '0.06em', borderRadius: 8,
-            textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)',
+            textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)', display: 'inline-block', textAlign: 'center'
           }}>
             Ver funciones
           </a>
         </div>
 
         {/* Stats bar */}
-        <div style={{
-          marginTop: 72, width: '100%', maxWidth: 880,
-          display: 'grid', gridTemplateColumns: 'repeat(4,1fr)',
-          border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12,
-          overflow: 'hidden', background: '#111',
-        }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 w-full max-w-[880px] mt-14 md:mt-18 border border-white/[0.07] rounded-xl overflow-hidden bg-[#111]">
           {[
             { val: '100%', label: 'Gratis y libre' },
             { val: 'Sin registro', label: 'Acceso inmediato' },
             { val: '4', label: 'Calculadoras MVP' },
             { val: '100%', label: 'Basado en evidencia' },
           ].map(({ val, label }, i) => (
-            <div key={label} style={{ padding: '24px 28px', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
+            <div key={label} className={`p-4 md:p-6 text-center md:text-left ${i < 3 ? 'border-b md:border-b-0 border-r border-white/[0.07]' : ''}`}>
               <p style={{ fontFamily: 'var(--font-barlow)', fontWeight: 900, fontSize: 36, color: '#f0f0f0', lineHeight: 1, marginBottom: 6 }}>{val}</p>
               <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)' }}>{label}</p>
             </div>
@@ -154,7 +149,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FEATURES ── */}
-      <section id="features" style={{ position: 'relative', zIndex: 1, padding: '96px 48px', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
+      <section id="features" className="px-4 md:px-12 py-16 md:py-24" style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: '#C8FF00', marginBottom: 16 }}>Funcionalidades</p>
         <h2 style={{ fontFamily: 'var(--font-barlow)', fontWeight: 900, fontSize: 'clamp(42px,6vw,72px)', lineHeight: 0.92, textTransform: 'uppercase', letterSpacing: '-0.01em', marginBottom: 16, color: '#f0f0f0' }}>
           Todo lo que<br /><span style={{ color: '#C8FF00' }}>necesitas</span>
@@ -179,7 +174,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── INFO SECCIÓN (REEMPLAZA PRECIOS) ── */}
-      <section id="free-access" style={{ position: 'relative', zIndex: 1, padding: '96px 48px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+      <section id="free-access" className="px-4 md:px-12 py-16 md:py-24" style={{ position: 'relative', zIndex: 1, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ maxWidth: 820, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.22em', color: '#C8FF00', marginBottom: 16 }}>Herramientas libres</p>
           <h2 style={{ fontFamily: 'var(--font-barlow)', fontWeight: 900, fontSize: 'clamp(42px,6vw,72px)', lineHeight: 0.92, textTransform: 'uppercase', letterSpacing: '-0.01em', marginBottom: 24, color: '#f0f0f0' }}>
@@ -209,8 +204,8 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section style={{ position: 'relative', zIndex: 1, padding: '96px 48px', borderTop: '1px solid rgba(255,255,255,0.07)', background: '#111', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: 'var(--font-barlow)', fontWeight: 900, lineHeight: 0.9, textTransform: 'uppercase', letterSpacing: '-0.01em', marginBottom: 28, fontSize: 'clamp(56px,8vw,100px)' }}>
+      <section className="px-4 md:px-12 py-16 md:py-24" style={{ position: 'relative', zIndex: 1, borderTop: '1px solid rgba(255,255,255,0.07)', background: '#111', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: 'var(--font-barlow)', fontWeight: 900, lineHeight: 0.9, textTransform: 'uppercase', letterSpacing: '-0.01em', marginBottom: 28, fontSize: 'clamp(44px,8vw,100px)' }}>
           <span style={{ display: 'block', color: '#f0f0f0' }}>Empieza ahora.</span>
           <span style={{ display: 'block', color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>Al instante.</span>
         </h2>
@@ -228,7 +223,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ position: 'relative', zIndex: 1, padding: '32px 48px', borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <footer className="px-4 md:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ position: 'relative', zIndex: 1, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)' }}>
           © 2026 FitMetrics · Entrena con datos.
         </p>
@@ -242,3 +237,4 @@ export default function LandingPage() {
     </div>
   )
 }
+

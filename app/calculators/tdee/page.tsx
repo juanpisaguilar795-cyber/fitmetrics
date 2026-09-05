@@ -6,26 +6,26 @@ import { formatNumber } from '@/lib/utils'
 import { calculateTDEE, type TDEEResult } from '@/lib/calculators/tdee'
 
 const ACTIVITY_OPTIONS = [
-  { value: 'sedentary',   label: 'Sedentario',  desc: 'Sin ejercicio' },
-  { value: 'light',       label: 'Ligero',      desc: '1-3 días/sem'  },
-  { value: 'moderate',    label: 'Moderado',    desc: '3-5 días/sem'  },
-  { value: 'active',      label: 'Activo',      desc: '6-7 días/sem'  },
-  { value: 'very_active', label: 'Muy activo',  desc: '2 sesiones/día'},
+  { value: 'sedentary', label: 'Sedentario', desc: 'Sin ejercicio' },
+  { value: 'light', label: 'Ligero', desc: '1-3 días/sem' },
+  { value: 'moderate', label: 'Moderado', desc: '3-5 días/sem' },
+  { value: 'active', label: 'Activo', desc: '6-7 días/sem' },
+  { value: 'very_active', label: 'Muy activo', desc: '2 sesiones/día' },
 ]
 
 export default function TDEEPage() {
   const [form, setForm] = useState({
     weight_kg: '',
     height_cm: '',
-    age:        '',
-    sex:        'male',
+    age: '',
+    sex: 'male',
     activity_level: 'moderate',
-    goal:       'maintenance',
-    formula:    'mifflin',
+    goal: 'maintenance',
+    formula: 'mifflin',
   })
-  const [result,  setResult]  = useState<TDEEResult | null>(null)
+  const [result, setResult] = useState<TDEEResult | null>(null)
   const [loading, setLoading] = useState(false)
-  const [error,   setError]   = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   function update(k: string, v: string) {
     setForm(f => ({ ...f, [k]: v }))
@@ -66,13 +66,13 @@ export default function TDEEPage() {
   }
 
   const GOAL_LABELS: Record<string, string> = {
-    deficit:     'Déficit (−500 kcal)',
+    deficit: 'Déficit (−500 kcal)',
     maintenance: 'Mantenimiento',
-    surplus:     'Superávit (+300 kcal)',
+    surplus: 'Superávit (+300 kcal)',
   }
 
   return (
-    <div className="p-8 max-w-3xl">
+    <div className="p-4 sm:p-6 md:p-8 max-w-3xl mx-auto w-full">
       <div className="mb-10">
         <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-1">Calculadora</p>
         <h1 className="font-black text-4xl uppercase tracking-tight text-white">
@@ -83,7 +83,7 @@ export default function TDEEPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Form */}
         <form onSubmit={handleSubmit} className="bg-[#111] border border-white/[0.07] rounded-xl p-6 flex flex-col gap-5">
 
@@ -91,17 +91,16 @@ export default function TDEEPage() {
           <div className="flex gap-2">
             {[
               { value: 'mifflin', label: 'Mifflin-St Jeor' },
-              { value: 'harris',  label: 'Harris-Benedict' },
+              { value: 'harris', label: 'Harris-Benedict' },
             ].map(o => (
               <button
                 key={o.value}
                 type="button"
                 onClick={() => update('formula', o.value)}
-                className={`flex-1 py-2 text-xs font-mono uppercase tracking-widest rounded-lg border transition-all ${
-                  form.formula === o.value
+                className={`flex-1 py-2 text-xs font-mono uppercase tracking-widest rounded-lg border transition-all ${form.formula === o.value
                     ? 'bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00]'
                     : 'bg-[#181818] border-white/[0.07] text-white/30 hover:text-white/50'
-                }`}
+                  }`}
               >
                 {o.label}
               </button>
@@ -117,11 +116,10 @@ export default function TDEEPage() {
                   key={o.value}
                   type="button"
                   onClick={() => update('sex', o.value)}
-                  className={`py-2.5 text-sm font-mono rounded-lg border transition-all ${
-                    form.sex === o.value
+                  className={`py-2.5 text-sm font-mono rounded-lg border transition-all ${form.sex === o.value
                       ? 'bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00]'
                       : 'bg-[#181818] border-white/[0.07] text-white/40 hover:text-white/60'
-                  }`}
+                    }`}
                 >
                   {o.label}
                 </button>
@@ -130,11 +128,11 @@ export default function TDEEPage() {
           </div>
 
           {/* Datos físicos */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { key: 'weight_kg', label: 'Peso (kg)',  placeholder: '75'  },
-              { key: 'height_cm', label: 'Altura (cm)',placeholder: '175' },
-              { key: 'age',       label: 'Edad',       placeholder: '28'  },
+              { key: 'weight_kg', label: 'Peso (kg)', placeholder: '75' },
+              { key: 'height_cm', label: 'Altura (cm)', placeholder: '175' },
+              { key: 'age', label: 'Edad', placeholder: '28' },
             ].map(({ key, label, placeholder }) => (
               <div key={key} className="flex flex-col gap-1.5">
                 <label className="text-[10px] font-mono uppercase tracking-widest text-white/40">{label}</label>
@@ -157,11 +155,10 @@ export default function TDEEPage() {
               {ACTIVITY_OPTIONS.map(o => (
                 <label
                   key={o.value}
-                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg border cursor-pointer transition-all ${
-                    form.activity_level === o.value
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg border cursor-pointer transition-all ${form.activity_level === o.value
                       ? 'bg-[#C8FF00]/10 border-[#C8FF00]/30'
                       : 'bg-[#181818] border-white/[0.07] hover:border-white/20'
-                  }`}
+                    }`}
                 >
                   <input
                     type="radio"
@@ -189,11 +186,10 @@ export default function TDEEPage() {
                   key={g}
                   type="button"
                   onClick={() => update('goal', g)}
-                  className={`py-2 text-[10px] font-mono uppercase tracking-widest rounded-lg border transition-all ${
-                    form.goal === g
+                  className={`py-2 text-[10px] font-mono uppercase tracking-widest rounded-lg border transition-all ${form.goal === g
                       ? 'bg-[#C8FF00]/10 border-[#C8FF00]/30 text-[#C8FF00]'
                       : 'bg-[#181818] border-white/[0.07] text-white/30 hover:text-white/50'
-                  }`}
+                    }`}
                 >
                   {g === 'deficit' ? 'Déficit' : g === 'maintenance' ? 'Manten.' : 'Superávit'}
                 </button>
@@ -218,7 +214,7 @@ export default function TDEEPage() {
             <div className="bg-[#111] border border-white/[0.07] rounded-xl p-8 flex flex-col items-center justify-center h-full text-center">
               <div className="w-12 h-12 bg-[#C8FF00]/10 border border-[#C8FF00]/20 rounded-xl flex items-center justify-center mb-4">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8FF00" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M9 19V13a3 3 0 01-6 0V6m6 13v-6m0 0a3 3 0 016 0v6m-6-6V6m6 13V10m0 0a3 3 0 016 0v9"/>
+                  <path d="M9 19V13a3 3 0 01-6 0V6m6 13v-6m0 0a3 3 0 016 0v6m-6-6V6m6 13V10m0 0a3 3 0 016 0v9" />
                 </svg>
               </div>
               <p className="text-white/20 font-mono text-sm">Completa el formulario</p>
@@ -238,7 +234,7 @@ export default function TDEEPage() {
               </div>
 
               {/* BMR + TDEE */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-[#111] border border-white/[0.07] rounded-xl p-4">
                   <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-1">BMR</p>
                   <p className="font-black text-2xl text-white">{formatNumber(result.bmr)}</p>

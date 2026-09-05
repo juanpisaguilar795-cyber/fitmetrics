@@ -176,9 +176,9 @@ export default function HypertrophyPage() {
   }
 
   return (
-    <div className="p-8 max-w-5xl">
+    <div className="p-4 sm:p-6 md:p-8 max-w-5xl mx-auto w-full">
       {/* Cabecera */}
-      <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="mb-8 sm:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <p className="text-[10px] font-mono uppercase tracking-widest text-white/30 mb-1">Entrenamiento y Técnica</p>
           <h1 className="font-black text-4xl uppercase tracking-tight text-white leading-none">
@@ -190,17 +190,16 @@ export default function HypertrophyPage() {
         </div>
 
         {/* Frecuencia Selector (3, 4, 5 días) */}
-        <div className="bg-[#111] border border-white/[0.07] p-2 rounded-xl flex items-center gap-1.5 self-start md:self-auto">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 px-2"> Split Frecuencia:</span>
+        <div className="bg-[#111] border border-white/[0.07] p-2 rounded-xl flex items-center gap-1.5 self-start md:self-auto overflow-x-auto max-w-full">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 px-2 whitespace-nowrap"> Split Frecuencia:</span>
           {([3, 4, 5] as const).map(d => (
             <button
               key={d}
               onClick={() => handleSplitChange(d)}
-              className={`px-4 py-2 text-xs font-mono font-bold uppercase rounded-lg transition-all ${
-                splitDays === d
+              className={`px-4 py-2 text-xs font-mono font-bold uppercase rounded-lg transition-all whitespace-nowrap ${splitDays === d
                   ? 'bg-[#C8FF00] text-black shadow-lg shadow-[#C8FF00]/10'
                   : 'text-white/40 hover:text-white hover:bg-white/[0.03]'
-              }`}
+                }`}
             >
               {d} días
             </button>
@@ -209,12 +208,12 @@ export default function HypertrophyPage() {
       </div>
 
       {/* Info Split Activo */}
-      <div className="bg-[#111] border border-white/[0.07] rounded-xl p-5 mb-8 flex items-center justify-between">
+      <div className="bg-[#111] border border-white/[0.07] rounded-xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <p className="text-[9px] font-mono uppercase tracking-widest text-[#C8FF00] mb-0.5">Esquema Seleccionado</p>
           <p className="font-bold text-sm text-white">{currentRoutine.title}</p>
         </div>
-        <div className="bg-[#181818] border border-white/[0.07] px-3 py-1.5 rounded-lg text-xs font-mono text-white/40">
+        <div className="bg-[#181818] border border-white/[0.07] px-3 py-1.5 rounded-lg text-xs font-mono text-white/40 sm:whitespace-nowrap whitespace-normal">
           Volumen: 12 - 20 series por grupo muscular / semana
         </div>
       </div>
@@ -225,11 +224,10 @@ export default function HypertrophyPage() {
           <button
             key={day.key}
             onClick={() => setActiveTabKey(day.key)}
-            className={`flex-1 min-w-[140px] pb-3 text-center transition-all focus:outline-none border-b-2 ${
-              activeTabKey === day.key
+            className={`flex-1 min-w-[140px] pb-3 text-center transition-all focus:outline-none border-b-2 ${activeTabKey === day.key
                 ? 'border-[#C8FF00] text-white font-bold'
                 : 'border-transparent text-white/30 hover:text-white/60'
-            }`}
+              }`}
           >
             <p className="text-xs uppercase tracking-wider">{day.label.split(' · ')[0]}</p>
             <p className="text-[9px] font-mono uppercase tracking-widest opacity-60 mt-0.5">{day.label.split(' · ')[1] || ''}</p>
@@ -263,7 +261,7 @@ export default function HypertrophyPage() {
       </div>
 
       {/* ── MÉTODOS DE INTENSIFICACIÓN Y NOTAS CLAVE ── */}
-      <div className="bg-[#111] border border-white/[0.07] rounded-xl p-6 text-xs text-white/40 font-mono leading-relaxed grid grid-cols-2 gap-8">
+      <div className="bg-[#111] border border-white/[0.07] rounded-xl p-4 sm:p-6 text-xs text-white/40 font-mono leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-white/70 mb-2 font-bold">Concepto Clave: RIR (Reps in Reserve)</p>
           Para maximizar la hipertrofia (crecimiento muscular) sin fundir tu sistema nervioso, mantente en un RIR 1 o RIR 2 en tus series de accesorios. Significa finalizar la serie sintiendo que podías hacer exactamente 1 o 2 repeticiones más con técnica perfecta antes del fallo total.
@@ -278,7 +276,7 @@ export default function HypertrophyPage() {
       {currentVideoId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
           <div className="bg-[#111] border border-white/10 rounded-2xl w-full max-w-2xl overflow-hidden relative shadow-2xl">
-            
+
             {/* Header del modal */}
             <div className="px-5 py-4 border-b border-white/[0.07] flex justify-between items-center bg-[#181818]">
               <span className="text-xs font-mono uppercase tracking-widest text-[#C8FF00] font-bold flex items-center gap-2">
@@ -303,7 +301,7 @@ export default function HypertrophyPage() {
                 allowFullScreen
               />
             </div>
-            
+
             {/* Pie del modal */}
             <div className="p-4 bg-[#181818] text-[9px] font-mono text-white/30 leading-relaxed text-center">
               *Los videos son demostraciones de técnica provistas públicamente. Mantén un rango de movimiento seguro y no sacrifiques la postura por levantar más carga.

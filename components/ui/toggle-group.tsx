@@ -10,10 +10,10 @@ interface Option {
 }
 
 interface ToggleGroupProps {
-  options:  Option[]
-  value:    string
+  options: Option[]
+  value: string
   onChange: (value: string) => void
-  cols?:    2 | 3 | 4 | 5
+  cols?: 2 | 3 | 4 | 5
 }
 
 const COLS: Record<number, string> = {

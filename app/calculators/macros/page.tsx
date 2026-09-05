@@ -10,38 +10,38 @@ import { Button, PageHeader, StatCard } from '@/components/ui/badge'
 import { calculateMacros, type MacrosResult } from '@/lib/calculators/macros'
 
 const GOAL_OPTIONS = [
-  { value: 'deficit',     label: 'Déficit',     desc: '−500 kcal' },
-  { value: 'maintenance', label: 'Manten.',     desc: '±0 kcal'   },
-  { value: 'surplus',     label: 'Superávit',   desc: '+300 kcal' },
+  { value: 'deficit', label: 'Déficit', desc: '−500 kcal' },
+  { value: 'maintenance', label: 'Manten.', desc: '±0 kcal' },
+  { value: 'surplus', label: 'Superávit', desc: '+300 kcal' },
 ]
 
 const PROFILE_OPTIONS = [
-  { value: 'cut',    label: 'Cutting',    desc: 'Alta proteína, bajo carbo' },
-  { value: 'bulk',   label: 'Bulking',    desc: 'Alto carbo, proteína mod.' },
-  { value: 'recomp', label: 'Recomp',     desc: 'Equilibrado' },
-  { value: 'custom', label: 'Custom',     desc: 'Define tu ratio' },
+  { value: 'cut', label: 'Cutting', desc: 'Alta proteína, bajo carbo' },
+  { value: 'bulk', label: 'Bulking', desc: 'Alto carbo, proteína mod.' },
+  { value: 'recomp', label: 'Recomp', desc: 'Equilibrado' },
+  { value: 'custom', label: 'Custom', desc: 'Define tu ratio' },
 ]
 
 // Ratios preconfigurados (protein_ratio en g/kg, fat_ratio en % kcal)
 const PRESET_RATIOS: Record<string, { protein_ratio: number; fat_ratio: number }> = {
-  cut:    { protein_ratio: 2.5, fat_ratio: 0.25 },
-  bulk:   { protein_ratio: 2.0, fat_ratio: 0.25 },
+  cut: { protein_ratio: 2.5, fat_ratio: 0.25 },
+  bulk: { protein_ratio: 2.0, fat_ratio: 0.25 },
   recomp: { protein_ratio: 2.2, fat_ratio: 0.27 },
   custom: { protein_ratio: 2.2, fat_ratio: 0.27 },
 }
 
 export default function MacrosPage() {
   const [form, setForm] = useState({
-    tdee:          '',
-    weight_kg:     '',
-    goal:          'maintenance',
-    profile:       'recomp',
+    tdee: '',
+    weight_kg: '',
+    goal: 'maintenance',
+    profile: 'recomp',
     protein_ratio: 2.2,
-    fat_ratio:     0.27,
+    fat_ratio: 0.27,
   })
-  const [result,  setResult]  = useState<MacrosResult | null>(null)
+  const [result, setResult] = useState<MacrosResult | null>(null)
   const [loading, setLoading] = useState(false)
-  const [error,   setError]   = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   function update(k: string, v: string | number) {
     setForm(f => ({ ...f, [k]: v }))
@@ -73,10 +73,10 @@ export default function MacrosPage() {
       const protein_g_total = Math.round(weight * form.protein_ratio)
 
       const calculatedResult = calculateMacros({
-        tdee:          tdee,
-        goal:          form.goal as any,
+        tdee: tdee,
+        goal: form.goal as any,
         protein_ratio: protein_g_total,   // g totales
-        fat_ratio:     form.fat_ratio,
+        fat_ratio: form.fat_ratio,
       })
 
       setResult(calculatedResult)
@@ -90,14 +90,14 @@ export default function MacrosPage() {
   const isCustom = form.profile === 'custom'
 
   return (
-    <div className="p-8 max-w-4xl">
+    <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto w-full">
       <PageHeader
         section="Calculadora"
         title={<>Macro<span className="text-[#C8FF00]">nutrientes</span></>}
         desc="Distribuye tus calorías en proteínas, carbohidratos y grasas según tu objetivo"
       />
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* ── Form ── */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
@@ -254,11 +254,11 @@ export default function MacrosPage() {
                   <p className="text-[10px] font-mono text-white/20 mb-4">
                     Distribuido en 4 comidas iguales
                   </p>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {[
-                      { label: 'Proteína',  g: result.protein_g, color: '#C8FF00' },
-                      { label: 'Carbos',    g: result.carbs_g,   color: '#60a5fa' },
-                      { label: 'Grasas',    g: result.fat_g,     color: '#fb923c' },
+                      { label: 'Proteína', g: result.protein_g, color: '#C8FF00' },
+                      { label: 'Carbos', g: result.carbs_g, color: '#60a5fa' },
+                      { label: 'Grasas', g: result.fat_g, color: '#fb923c' },
                     ].map(({ label, g, color }) => (
                       <div key={label} className="bg-[#181818] border border-white/[0.07] rounded-lg p-3 text-center">
                         <p className="text-[10px] font-mono uppercase tracking-widest mb-1" style={{ color }}>
