@@ -86,15 +86,19 @@ const SQUAT_PROGRESSION: BlockWeekData[] = [
   { week: 6, pctMin: 0.85, pctMax: 0.875, repsText: '4 x 4', note: 'Retorno carga' },
   { week: 7, pctMin: 0.875, pctMax: 0.90, repsText: '4 x 3', note: 'Intensidad Alta' },
   { week: 8, pctMin: 0.925, pctMax: 0.95, repsText: '3 x 2', note: 'Pico de Fuerza' },
-  { week: 9, pctMin: 1.025, pctMax: 1.05, repsText: '1 x 1', note: 'Test de PR' }, // PR > 100%
+  { week: 9, pctMin: 1.025, pctMax: 1.05, repsText: '1 x 1', note: 'Test de PR' },
 ]
 
 export default function BlockPlannerPage() {
-  const [bench1RM, setBench1RM] = useState<number>(86)
-  const [deadlift1RM, setDeadlift1RM] = useState<number>(180)
-  const [squat1RM, setSquat1RM] = useState<number>(140)
-  const [selectedWeek, setSelectedWeek] = useState<number>(3)
+  const [bench1RM, setBench1RM] = useState<number | ''>(86)
+  const [deadlift1RM, setDeadlift1RM] = useState<number | ''>(180)
+  const [squat1RM, setSquat1RM] = useState<number | ''>(140)
+  const [selectedWeek, setSelectedWeek] = useState<number>(1)
   const [activeTab, setActiveTab] = useState<'lunes' | 'martes' | 'miercoles' | 'jueves' | 'viernes'>('lunes')
+
+  const bRM = typeof bench1RM === 'number' ? bench1RM : 0
+  const dRM = typeof deadlift1RM === 'number' ? deadlift1RM : 0
+  const sRM = typeof squat1RM === 'number' ? squat1RM : 0
 
   // Cuestionario de Progresión
   const [questionnaire, setQuestionnaire] = useState({
@@ -109,9 +113,11 @@ export default function BlockPlannerPage() {
   }
 
   // Generar rango de peso calculado
-  function getCalculatedWeight(rm: number, minPct: number, maxPct: number): string {
-    const minWeight = roundTo25(rm * minPct)
-    const maxWeight = roundTo25(rm * maxPct)
+  function getCalculatedWeight(rm: number | '', minPct: number, maxPct: number): string {
+    const numRM = typeof rm === 'number' ? rm : 0
+    if (!numRM || numRM <= 0) return '0 kg'
+    const minWeight = roundTo25(numRM * minPct)
+    const maxWeight = roundTo25(numRM * maxPct)
     if (minWeight === maxWeight) {
       return `${minWeight} kg`
     }
@@ -119,24 +125,23 @@ export default function BlockPlannerPage() {
   }
 
   // Obtener pesos para la semana seleccionada
-  const benchPlanWeek = BENCH_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_PROGRESSION[2]
-  const benchHeavyWeight = getCalculatedWeight(bench1RM, benchPlanWeek.pctMin, benchPlanWeek.pctMax)
+  const benchPlanWeek = BENCH_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_PROGRESSION[0]
+  const benchHeavyWeight = getCalculatedWeight(bRM, benchPlanWeek.pctMin, benchPlanWeek.pctMax)
 
-  const benchTueWeek = BENCH_TUESDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_TUESDAY_PROGRESSION[2]
-  const benchTueWeight = getCalculatedWeight(bench1RM, benchTueWeek.pctMin, benchTueWeek.pctMax)
+  const benchTueWeek = BENCH_TUESDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_TUESDAY_PROGRESSION[0]
+  const benchTueWeight = getCalculatedWeight(bRM, benchTueWeek.pctMin, benchTueWeek.pctMax)
 
-  const benchThuWeek = BENCH_THURSDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_THURSDAY_PROGRESSION[2]
-  const benchThuWeight = getCalculatedWeight(bench1RM, benchThuWeek.pctMin, benchThuWeek.pctMax)
+  const benchThuWeek = BENCH_THURSDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_THURSDAY_PROGRESSION[0]
+  const benchThuWeight = getCalculatedWeight(bRM, benchThuWeek.pctMin, benchThuWeek.pctMax)
 
-  const benchFriWeek = BENCH_FRIDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_FRIDAY_PROGRESSION[2]
-  const benchFriWeight = getCalculatedWeight(bench1RM, benchFriWeek.pctMin, benchFriWeek.pctMax)
+  const benchFriWeek = BENCH_FRIDAY_PROGRESSION.find(w => w.week === selectedWeek) || BENCH_FRIDAY_PROGRESSION[0]
+  const benchFriWeight = getCalculatedWeight(bRM, benchFriWeek.pctMin, benchFriWeek.pctMax)
 
-  const deadliftPlanWeek = DEADLIFT_PROGRESSION.find(w => w.week === selectedWeek) || DEADLIFT_PROGRESSION[2]
-  const deadliftHeavyWeight = getCalculatedWeight(deadlift1RM, deadliftPlanWeek.pctMin, deadliftPlanWeek.pctMax)
+  const deadliftPlanWeek = DEADLIFT_PROGRESSION.find(w => w.week === selectedWeek) || DEADLIFT_PROGRESSION[0]
+  const deadliftHeavyWeight = getCalculatedWeight(dRM, deadliftPlanWeek.pctMin, deadliftPlanWeek.pctMax)
 
-  const squatPlanWeek = SQUAT_PROGRESSION.find(w => w.week === selectedWeek) || SQUAT_PROGRESSION[2]
-  const squatHeavyWeight = getCalculatedWeight(squat1RM, squatPlanWeek.pctMin, squatPlanWeek.pctMax)
-
+  const squatPlanWeek = SQUAT_PROGRESSION.find(w => w.week === selectedWeek) || SQUAT_PROGRESSION[0]
+  const squatHeavyWeight = getCalculatedWeight(sRM, squatPlanWeek.pctMin, squatPlanWeek.pctMax)
 
   // Cálculo del veredicto del cuestionario
   function getProgressionVerdict() {
@@ -202,7 +207,11 @@ export default function BlockPlannerPage() {
           <input
             type="number"
             value={bench1RM}
-            onChange={e => setBench1RM(Math.max(0, Number(e.target.value)))}
+            onChange={e => {
+              const val = e.target.value
+              if (val === '') setBench1RM('')
+              else setBench1RM(Math.max(0, Number(val)))
+            }}
             className="bg-[#181818] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-base font-mono focus:outline-none focus:border-[#C8FF00]/40 transition-colors"
           />
           <p className="text-[9px] font-mono text-white/20">Fuerza máxima en banca</p>
@@ -213,7 +222,11 @@ export default function BlockPlannerPage() {
           <input
             type="number"
             value={deadlift1RM}
-            onChange={e => setDeadlift1RM(Math.max(0, Number(e.target.value)))}
+            onChange={e => {
+              const val = e.target.value
+              if (val === '') setDeadlift1RM('')
+              else setDeadlift1RM(Math.max(0, Number(val)))
+            }}
             className="bg-[#181818] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-base font-mono focus:outline-none focus:border-[#C8FF00]/40 transition-colors"
           />
           <p className="text-[9px] font-mono text-white/20">Fuerza máxima en PM</p>
@@ -224,7 +237,11 @@ export default function BlockPlannerPage() {
           <input
             type="number"
             value={squat1RM}
-            onChange={e => setSquat1RM(Math.max(0, Number(e.target.value)))}
+            onChange={e => {
+              const val = e.target.value
+              if (val === '') setSquat1RM('')
+              else setSquat1RM(Math.max(0, Number(val)))
+            }}
             className="bg-[#181818] border border-white/[0.07] rounded-lg px-3 py-2 text-white text-base font-mono focus:outline-none focus:border-[#C8FF00]/40 transition-colors"
           />
           <p className="text-[9px] font-mono text-white/20">Fuerza máxima en Sentadilla</p>
@@ -580,7 +597,7 @@ export default function BlockPlannerPage() {
                 <p className="font-black text-4xl sm:text-5xl text-[#C8FF00]">
                   {benchHeavyWeight}
                 </p>
-                <p className="text-xs font-mono text-white/30 mt-1">Equivalente a: {(roundTo25(bench1RM * benchPlanWeek.pctMin) * 2.20462).toFixed(1)} lb</p>
+                <p className="text-xs font-mono text-white/30 mt-1">Equivalente a: {(roundTo25(bRM * benchPlanWeek.pctMin) * 2.20462).toFixed(1)} lb</p>
               </div>
 
               <div className="bg-[#181818] p-5 rounded-lg border border-white/[0.04] flex flex-col justify-center">
